@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O violoncelo em detalhes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Source+Serif+4:opsz,wght@8..60,300..500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7;
+    --ink:#2b2019;
+    --ink-dim:#6b5c4c;
+    --wood:#a8623a;
+    --line:#ddd1bc;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Source Serif 4', serif;
+    line-height:1.7;
+    font-size:1.05rem;
+  }
+
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+    padding:0 28px 100px;
+  }
+
+  header.top{
+    max-width:640px;
+    margin:0 auto;
+    padding:28px 28px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  header.top a{
+    font-family:'Source Serif 4', serif;
+    font-size:0.9rem;
+    letter-spacing:0.03em;
+    color:var(--wood);
+    text-decoration:none;
+    border-bottom:1px solid var(--wood);
+    padding-bottom:2px;
+    transition:opacity 0.2s;
+  }
+
+  header.top a:hover{opacity:0.7;}
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2rem, 5.5vw, 2.7rem);
+    margin:44px 0 8px;
+  }
+
+  .sub{
+    color:var(--ink-dim);
+    font-size:1rem;
+    margin-bottom:48px;
+  }
+
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.35rem;
+    margin:48px 0 14px;
+    color:var(--wood);
+  }
+
+  h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    margin:22px 0 6px;
+  }
+
+  p{margin-bottom:14px;}
+
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--wood);
+  }
+
+  hr{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:48px 0;
+  }
+
+  /* lista de partes */
+  .parts{margin-top:8px;}
+  .part-row{
+    display:flex;
+    gap:18px;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+  }
+  .part-row:last-child{border-bottom:1px solid var(--line);}
+  .part-name{
+    flex:0 0 130px;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--wood);
+  }
+  .part-desc{color:var(--ink-dim); font-size:0.98rem;}
+
+  /* tabela de cordas */
+  .strings-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:8px;
+    font-size:0.98rem;
+  }
+  .strings-table th{
+    text-align:left;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-dim);
+    border-bottom:1px solid var(--line);
+    padding:8px 10px 8px 0;
+  }
+  .strings-table td{
+    padding:10px 10px 10px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .strings-table td:first-child{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--wood);
+  }
+
+  /* linha do tempo */
+  .timeline{margin-top:8px;}
+  .tl-item{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:18px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+  }
+  .tl-item:last-child{border-bottom:1px solid var(--line);}
+  .tl-year{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.9rem;
+    color:var(--wood);
+    padding-top:2px;
+  }
+  .tl-item h3{margin:0 0 4px;}
+  .tl-item p{margin-bottom:0; color:var(--ink-dim); font-size:0.98rem;}
+
+  /* família comparativa */
+  .family-list{margin-top:8px;}
+  .fam-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:12px 0;
+    border-top:1px solid var(--line);
+  }
+  .fam-row:last-child{border-bottom:1px solid var(--line);}
+  .fam-row .fam-name{font-family:'Fraunces', serif; font-weight:600;}
+  .fam-row.is-cello .fam-name{color:var(--wood);}
+  .fam-row .fam-len{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.85rem;
+    color:var(--ink-dim);
+  }
+
+  ul{margin:0 0 16px 20px;}
+  li{margin-bottom:6px;}
+
+  footer{
+    margin-top:60px;
+    font-size:0.85rem;
+    color:var(--ink-dim);
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a href="violoncelo-simples.html">&larr; Voltar</a>
+  <a href="https://www.hpgmusical.com/instrumentos/violoncelos/?srsltid=AfmBOor40AftEEVY_YpVE-IbxoG_frKRMMCeQVJ5p1hMB02mM5ZVTmXR">Loja</a>
+</header>
+
+<div class="wrap">
+
+  <span class="eyebrow">Em detalhes</span>
+  <h1>O violoncelo, por dentro</h1>
+  <p class="sub">Construção, cordas, família e um pouco de história.</p>
+
+  <h2>As partes do instrumento</h2>
+  <p>Cada peça do violoncelo tem uma função acústica específica — nada é apenas decorativo.</p>
+  <div class="parts">
+    <div class="part-row">
+      <div class="part-name">Voluta</div>
+      <div class="part-desc">O caracol esculpido no topo do braço, geralmente feito à mão pelo luthier.</div>
+    </div>
+    <div class="part-row">
+      <div class="part-name">Cravelhas</div>
+      <div class="part-desc">Pinos de madeira que giram para afinar cada corda, ajustando a tensão.</div>
+    </div>
+    <div class="part-row">
+      <div class="part-name">Escala</div>
+      <div class="part-desc">Superfície de ébano sobre o braço onde os dedos pressionam as cordas.</div>
+    </div>
+    <div class="part-row">
+      <div class="part-name">Efes</div>
+      <div class="part-desc">Aberturas em forma de "f" na tampa, que deixam o som escapar da caixa acústica.</div>
+    </div>
+    <div class="part-row">
+      <div class="part-name">Cavalete</div>
+      <div class="part-desc">Peça de bordo que sustenta as cordas e transmite a vibração para o corpo do instrumento.</div>
+    </div>
+    <div class="part-row">
+      <div class="part-name">Cordal</div>
+      <div class="part-desc">Prende a extremidade inferior das cordas, geralmente com afinadores finos.</div>
+    </div>
+    <div class="part-row">
+      <div class="part-name">Espiga</div>
+      <div class="part-desc">Haste retrátil de metal que apoia o violoncelo no chão, ajustável à altura do músico.</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2>As quatro cordas</h2>
+  <p>As cordas são afinadas em quintas, da mais grave para a mais aguda. Quanto mais grave, mais grossa é a corda.</p>
+  <table class="strings-table">
+    <tr>
+      <th>Corda</th>
+      <th>Nota</th>
+      <th>Frequência</th>
+    </tr>
+    <tr><td>1ª (mais grossa)</td><td>Dó (C2)</td><td>65,4 Hz</td></tr>
+    <tr><td>2ª</td><td>Sol (G2)</td><td>98,0 Hz</td></tr>
+    <tr><td>3ª</td><td>Ré (D3)</td><td>146,8 Hz</td></tr>
+    <tr><td>4ª (mais fina)</td><td>Lá (A3)</td><td>220,0 Hz</td></tr>
+  </table>
+
+  <hr>
+
+  <h2>Onde ele se encaixa na família</h2>
+  <p>O violoncelo faz parte da família das cordas friccionadas, entre a viola e o contrabaixo.</p>
+  <div class="family-list">
+    <div class="fam-row"><span class="fam-name">Violino</span><span class="fam-len">~35 cm &middot; voz aguda</span></div>
+    <div class="fam-row"><span class="fam-name">Viola</span><span class="fam-len">~41 cm &middot; contralto</span></div>
+    <div class="fam-row is-cello"><span class="fam-name">Violoncelo</span><span class="fam-len">~75 cm &middot; tenor/barítono</span></div>
+    <div class="fam-row"><span class="fam-name">Contrabaixo</span><span class="fam-len">~110 cm &middot; grave</span></div>
+  </div>
+
+  <hr>
+
+  <h2>Um pouco de história</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">c. 1538</div>
+      <div>
+        <h3>Primeiras formas na Itália</h3>
+        <p>Instrumentos de corda grave surgem em oficinas do norte da Itália, para dar sustentação a conjuntos de câmara.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1660&ndash;1730</div>
+      <div>
+        <h3>Cremona define o formato</h3>
+        <p>Luthiers como Andrea Amati e Antonio Stradivari fixam as proporções que definem o violoncelo moderno.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1720</div>
+      <div>
+        <h3>Bach e as Suítes</h3>
+        <p>As seis Suítes para Violoncelo Solo de Bach elevam o instrumento de acompanhamento a voz solista.</p>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">século XX</div>
+      <div>
+        <h3>Virtuoses e novo repertório</h3>
+        <p>Intérpretes como Pau Casals e Mstislav Rostropóvitch popularizam o instrumento e inspiram novas obras.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <h2>Para ouvir</h2>
+  <ul>
+    <li><strong>J. S. Bach</strong> — Suítes para Violoncelo Solo, BWV 1007&ndash;1012</li>
+    <li><strong>Edward Elgar</strong> — Concerto para Violoncelo em Mi menor, Op. 85</li>
+    <li><strong>Antonín Dvořák</strong> — Concerto para Violoncelo em Si menor, Op. 104</li>
+    <li><strong>Camille Saint-Saëns</strong> — "O Cisne", de O Carnaval dos Animais</li>
+  </ul>
+
+  <footer><b>Violoncelo</b> &middot;</footer>
+
+</div>
+</body>
+</html>
